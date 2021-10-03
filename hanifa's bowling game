@@ -1,0 +1,47 @@
+import java.util.*; 
+import java.util.Map.Entry; 
+
+public class Bowling {
+    HashMap<String, Integer> players;
+    Bowling() {
+        players = new HashMap<String, Integer>();
+    }
+    public void addPlayer(String name, int p) {
+        players.put(name, p);
+    }
+    //your code goes here
+    public void getWinner(){
+        Set<String> keySet = players.keySet(); 
+  
+        ArrayList<String> listOfKeys = new ArrayList<String>(keySet); 
+  
+        Collection<Integer> values = players.values(); 
+  
+        ArrayList<Integer> listOfValues = new ArrayList<>(values); 
+  
+        int max = Collections.max(listOfValues);
+        for(Entry<String, Integer> entry: players.entrySet()) {
+
+            if(entry.getValue() == max) {
+            System.out.println(entry.getKey());
+            break;
+      }
+    }
+    }
+}
+
+public class Program {
+    public static void main(String[ ] args) {
+        Bowling game = new Bowling();
+        Scanner sc = new Scanner(System.in);
+
+        for(int i=0;i<3;i++) {
+            String input = sc.nextLine();
+            String[] values = input.split(" ");
+            String name = values[0];
+            int points = Integer.parseInt(values[1]);
+            game.addPlayer(name, points);
+        }
+        game.getWinner();
+    }
+}
