@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Program
+{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String text = scanner.nextLine();
+		char[] arr = text.toCharArray();
+		
+		//your code goes here
+		String reverse = "";
+   for (char x : arr)
+   reverse = x + reverse;
+   System.out.println(reverse);
+	}
+}
